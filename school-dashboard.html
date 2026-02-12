@@ -1,0 +1,359 @@
+imple  s<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>School Dashboard | EduCatalyst</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --secondary-purple: #7c3aed;
+      --accent-pink: #ec4899;
+      --accent-teal: #0d9488;
+      --light-bg: #f8fafc;
+      --border-light: #e2e8f0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .dashboard-box {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(30, 64, 175, 0.2);
+      margin-top: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dashboard-box h3 {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .dashboard-box p {
+      color: var(--secondary-purple);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .table {
+      border-collapse: collapse;
+    }
+
+    .table thead {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-purple) 100%);
+    }
+
+    .table thead th {
+      color: white;
+      font-weight: 700;
+      border: none;
+      padding: 15px;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .table tbody tr {
+      transition: all 0.3s ease;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .table tbody tr:hover {
+      background: linear-gradient(90deg, rgba(124, 58, 237, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+      box-shadow: inset 0 0 10px rgba(124, 58, 237, 0.1);
+    }
+
+    .table tbody td {
+      color: #475569;
+      padding: 15px;
+      font-size: 0.95rem;
+    }
+
+    .table-bordered td {
+      border-color: var(--border-light);
+    }
+
+    #noData {
+      color: var(--secondary-purple);
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 40px 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.08);
+      text-align: center;
+      border: 1px solid var(--border-light);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(30, 64, 175, 0.15);
+    }
+
+    .stat-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-purple) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      color: white;
+      font-size: 20px;
+    }
+
+    .stat-content h4 {
+      color: var(--primary-blue);
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .stat-content p {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .dashboard-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .dashboard-actions .btn {
+      border-radius: 8px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header-area header-sticky">
+  <div class="container">
+    <nav class="main-nav">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="EduCatalyst">
+      </a>
+      <ul class="nav">
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fa fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <h4 id="totalApps">0</h4>
+            <p>Total Applications</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fa fa-check-circle"></i>
+          </div>
+          <div class="stat-content">
+            <h4 id="approvedApps">0</h4>
+            <p>Approved</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fa fa-clock-o"></i>
+          </div>
+          <div class="stat-content">
+            <h4 id="pendingApps">0</h4>
+            <p>Pending Review</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <div class="stat-content">
+            <h4 id="thisMonth">0</h4>
+            <p>This Month</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-box animate-on-scroll">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h3 id="schoolTitle"></h3>
+          <p class="mb-0">Received Applications</p>
+        </div>
+        <div class="dashboard-actions">
+          <button class="btn btn-outline-primary" onclick="exportData()">
+            <i class="fa fa-download"></i> Export
+          </button>
+          <button class="btn btn-outline-secondary" onclick="refreshData()">
+            <i class="fa fa-refresh"></i> Refresh
+          </button>
+        </div>
+      </div>
+
+      <table class="table table-bordered" id="appTable">
+        <thead class="thead-light">
+          <tr>
+            <th><i class="fa fa-user"></i> Student</th>
+            <th><i class="fa fa-birthday-cake"></i> DOB</th>
+            <th><i class="fa fa-user-circle"></i> Parent</th>
+            <th><i class="fa fa-camera"></i> Photo</th>
+            <th><i class="fa fa-file"></i> Documents</th>
+            <th><i class="fa fa-cogs"></i> Actions</th>
+          </tr>
+        </thead>
+        <tbody id="applicationsTable"></tbody>
+      </table>
+
+      <p id="noData" class="text-center text-muted">
+        <i class="fa fa-inbox fa-2x mb-3"></i><br>
+        No applications received yet.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const schoolName = localStorage.getItem("schoolName");
+    if (!schoolName) return window.location.href = "school-login.html";
+
+    document.getElementById("schoolTitle").innerText = "Welcome, " + schoolName;
+
+    const applications = JSON.parse(localStorage.getItem("applications")) || [];
+    const tableBody = document.getElementById("applicationsTable");
+
+    const filtered = applications.filter(app => app.school === schoolName);
+    if (filtered.length === 0) {
+      document.getElementById("noData").innerText = "No applications received yet.";
+      document.getElementById("appTable").style.display = "none";
+      return;
+    }
+
+    filtered.forEach((app, index) => {
+      const docs = Array.isArray(app.documents) ? app.documents.join(', ') : (app.documents || app.document || '');
+      const row = `
+        <tr>
+          <td>${app.studentName || ''}</td>
+          <td>${app.dob || ''}</td>
+          <td>${app.parentName || ''}</td>
+          <td>${app.photo ? '<i class="fa fa-check-circle text-success"></i>' : '<i class="fa fa-times-circle text-muted"></i>'}</td>
+          <td>${docs ? '<i class="fa fa-file text-primary"></i>' : '<i class="fa fa-file-o text-muted"></i>'}</td>
+          <td>
+            <button class="btn btn-sm btn-success" onclick="approveApplication(${index})">
+              <i class="fa fa-check"></i>
+            </button>
+            <button class="btn btn-sm btn-danger" onclick="rejectApplication(${index})">
+              <i class="fa fa-times"></i>
+            </button>
+          </td>
+        </tr>`;
+      tableBody.innerHTML += row;
+    });
+
+    // Update stats
+    document.getElementById("totalApps").textContent = filtered.length;
+    document.getElementById("approvedApps").textContent = Math.floor(filtered.length * 0.7); // Mock approved count
+    document.getElementById("pendingApps").textContent = Math.floor(filtered.length * 0.3); // Mock pending count
+    document.getElementById("thisMonth").textContent = filtered.length; // Mock this month count
+
+    window.logout = function() {
+      localStorage.removeItem('schoolName');
+      window.location.href = 'school-login.html';
+    };
+
+    window.exportData = function() {
+      alert('📊 Export Feature\n\nThis would export application data to CSV/Excel format.\n\nDemo: Applications data would be downloaded as a spreadsheet.');
+    };
+
+    window.refreshData = function() {
+      alert('🔄 Refreshing data...');
+      setTimeout(() => {
+        location.reload();
+      }, 500);
+    };
+
+    window.approveApplication = function(index) {
+      alert(`✅ Application ${index + 1} approved!\n\nIn a real system, this would update the application status and notify the parent.`);
+    };
+
+    window.rejectApplication = function(index) {
+      if (confirm(`❌ Are you sure you want to reject application ${index + 1}?`)) {
+        alert('Application rejected. Parent will be notified.');
+      }
+    };
+    window.logout = function() {
+      localStorage.removeItem('schoolName');
+      window.location.href = 'school-login.html';
+    };
+  })();
+</script>
+<script src="assets/js/scroll-anim.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>School Application | EduCatalyst</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <style>
+    .page-content { padding-top: 40px; }
+
+    .form-container {
+      max-width: 720px;
+      background: #ffffff;
+      padding: 36px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      margin-top: 24px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header-area header-sticky">
+  <div class="container">
+    <nav class="main-nav">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="EduCatalyst">
+      </a>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="findschool.html">Find School</a></li>
+        <li><a href="apply.html" class="active">Submit Application</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="section page-content">
+  <div class="container">
+    <div class="row align-items-center mb-4">
+      <div class="col-md-8">
+        <h2 class="welcome-title" style="font-size:28px;color:#111;">Apply to your chosen school</h2>
+        <p class="welcome-sub" style="color:#555;">Quickly submit your application — we'll deliver it to the selected school's admissions team.</p>
+      </div>
+      <div class="col-md-4 text-md-right d-none d-md-block">
+        <img src="assets/images/featured-item-01.png" alt="" style="max-width:120px;opacity:0.95;">
+      </div>
+    </div>
+
+    <div class="form-container animate-on-scroll" style="--i:0">
+
+      <h3 class="text-center mb-4 animate-on-scroll" style="--i:1">School Application Form</h3>
+
+      <form onsubmit="submitApplication(event)">
+
+        <div class="form-group">
+          <label>Select School</label>
+<select id="schoolSelect" class="form-control" required>
+  <option value="">-- Select School --</option>
+
+  <!-- ================= CHENNAI ================= -->
+  <option>PSBB Senior Secondary School</option>
+  <option>DAV Boys Senior Secondary School</option>
+  <option>Chettinad Vidyashram</option>
+  <option>Velammal Vidyalaya Chennai</option>
+  <option>SBOA School & Junior College</option>
+  <option>Don Bosco Matric. HSS Chennai</option>
+  <option>St. John’s International School Chennai</option>
+  <option>Doveton Boys Higher Secondary School</option>
+  <option>Loyola Matriculation Higher Secondary School Chennai</option>
+  <option>Kendriya Vidyalaya IIT Madras</option>
+
+  <!-- ================= NILGIRIS (OOTY / KOTAGIRI / COONOOR – ICSE) ================= -->
+  <option>Good Shepherd International School Ooty</option>
+  <option>Hebron School Ooty</option>
+  <option>The Lawrence School Lovedale</option>
+  <option>St. Mary’s Hill School Kotagiri</option>
+  <option>Stanles Anglo Indian School Coonoor</option>
+  <option>All Saints School Coonoor</option>
+  <option>St. Joseph’s School Coonoor</option>
+  <option>Breeks All India School Ooty</option>
+  <option>Blue Mountains School Ooty</option>
+  <option>St. Hilda’s School Ooty</option>
+
+  <!-- ================= COIMBATORE ================= -->
+  <option>Delhi Public School Coimbatore</option>
+  <option>PSG Public Schools Coimbatore</option>
+  <option>CS Academy Coimbatore</option>
+  <option>Amrita Vidyalayam Coimbatore</option>
+  <option>Lisieux CMI Public School Coimbatore</option>
+  <option>Chinmaya Vidyalaya Coimbatore</option>
+  <option>Suguna PIP School Coimbatore</option>
+  <option>Peelamedu Samacheer School</option>
+  <option>SSVM World School Coimbatore</option>
+  <option>National Model School Coimbatore</option>
+
+  <!-- ================= ERODE ================= -->
+  <option>Bannari Amman Vidya Niketan Erode</option>
+  <option>Velalar Vidyalayaa Senior Secondary School</option>
+  <option>RD International School Erode</option>
+  <option>Shree Swaminarayan Gurukul Erode</option>
+  <option>The Indian Public School Erode</option>
+  <option>Vivekananda Vidyalaya Erode</option>
+  <option>Sengunthar Public School Erode</option>
+  <option>Sri Vidya Mandir Erode</option>
+  <option>URC Palaniammal Matric School</option>
+  <option>Amrita Vidyalayam Erode</option>
+
+  <!-- ================= SALEM ================= -->
+  <option>Holy Angels Public School Salem</option>
+  <option>Cluny Vidya Nikethan Salem</option>
+  <option>Senthil Public School Salem</option>
+  <option>Montfort School Salem</option>
+  <option>SRV Boys Higher Secondary School</option>
+  <option>SRV Girls Higher Secondary School</option>
+  <option>St. Paul’s Higher Secondary School Salem</option>
+  <option>Golden Gates International School Salem</option>
+  <option>Vidhya Peetham iSchool Salem</option>
+  <option>Jairam Public School Salem</option>
+
+  <!-- ================= NAMAKKAL ================= -->
+  <option>Green Park International School Namakkal</option>
+  <option>The Spectrum Academy Namakkal</option>
+  <option>Little Angels Matric School Namakkal</option>
+  <option>Vivekananda Matriculation School Namakkal</option>
+  <option>SRK Matriculation School Namakkal</option>
+  <option>Royal International School Namakkal</option>
+  <option>Mount Litera Zee School Namakkal</option>
+  <option>Green Valley Public School Namakkal</option>
+  <option>SKV International School Namakkal</option>
+  <option>Rasi International School Namakkal</option>
+
+  <!-- ================= KARUR ================= -->
+  <option>Karur Saraswathi Vidyalaya</option>
+  <option>Cheran Matric Higher Secondary School Karur</option>
+  <option>St. Theresa’s Girls HSS Karur</option>
+  <option>Queen Mary’s Matriculation School Karur</option>
+  <option>Chettinad Public School Karur</option>
+  <option>TNPL Matriculation School Karur</option>
+  <option>Sri Vidhyalaya Karur</option>
+  <option>Veveaham Higher Secondary School</option>
+  <option>Green Park Matric School Karur</option>
+  <option>RKV Senior Secondary School Karur</option>
+
+  <!-- ================= TIRUCHIRAPPALLI ================= -->
+  <option>Montfort School Trichy</option>
+  <option>Alpha Plus Matriculation School Trichy</option>
+  <option>St. James Academy Trichy</option>
+  <option>Campion Anglo Indian School Trichy</option>
+  <option>Santhanam Vidyalaya Trichy</option>
+  <option>Boiler Plant Boys HSS Trichy</option>
+  <option>St. John’s Vestry Anglo Indian School</option>
+  <option>Rose Mary Public School Trichy</option>
+  <option>Kendriya Vidyalaya Trichy</option>
+  <option>Kamala Niketan Montessori School</option>
+
+  <!-- ================= MADURAI ================= -->
+  <option>TVS Lakshmi School Madurai</option>
+  <option>Mahindra World School Madurai</option>
+  <option>Queen Mira International School Madurai</option>
+  <option>Velammal Vidyalaya Madurai</option>
+  <option>Vikaasa School Madurai</option>
+  <option>St. Mary’s Higher Secondary School Madurai</option>
+  <option>CEOA Matriculation School Madurai</option>
+  <option>Fathima Matric School Madurai</option>
+  <option>Kendriya Vidyalaya Madurai</option>
+  <option>Good Shepherd Matriculation School Madurai</option>
+
+  <!-- ================= VIRUDHUNAGAR ================= -->
+  <option>Kshatriya Vidya Sala Virudhunagar</option>
+  <option>SHNV Matriculation School Sivakasi</option>
+  <option>YRTV Matriculation School Virudhunagar</option>
+  <option>Velammal Vidyalaya Sivakasi</option>
+  <option>AAA Matriculation School Sivakasi</option>
+  <option>Vallaba Vidyalaya Sivakasi</option>
+  <option>Hindu Nadars’ High School Virudhunagar</option>
+  <option>St. Mary’s Girls HSS Virudhunagar</option>
+  <option>Ravilla KRA Vidhyashram</option>
+  <option>Kendriya Vidyalaya Sivakasi</option>
+
+</select>
+
+        </div>
+
+        <div class="form-group">
+          <label>Student Name</label>
+          <input type="text" id="studentName" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Date of Birth</label>
+          <input type="date" id="dob" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Parent / Guardian Name</label>
+          <input type="text" id="parentName" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Student Photo</label>
+          <input type="file" id="photo" class="form-control-file" required>
+        </div>
+
+        <div class="form-group">
+          <label>Documents (Birth Certificate / TC)</label>
+          <input type="file" id="documents" class="form-control-file" multiple required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function submitApplication(e) {
+  if (e && e.preventDefault) e.preventDefault();
+
+  const application = {
+    school: document.getElementById("schoolSelect").value,
+    studentName: document.getElementById("studentName").value,
+    dob: document.getElementById("dob").value,
+    parentName: document.getElementById("parentName").value,
+    photo: document.getElementById("photo").files[0]?.name || "",
+    documents: Array.from(document.getElementById("documents").files || []).map(f => f.name).join(", ")
+  };
+
+  if (!application.school || !application.studentName || !application.dob || !application.parentName) {
+    alert("Please fill all required fields");
+    return;
+  }
+
+  let applications = JSON.parse(localStorage.getItem("applications")) || [];
+  applications.push(application);
+  localStorage.setItem("applications", JSON.stringify(applications));
+
+  window.location.href = "success.html";
+}
+</script>
+<script src="assets/js/scroll-anim.js"></script>
+
+
+</body>
+</html>
